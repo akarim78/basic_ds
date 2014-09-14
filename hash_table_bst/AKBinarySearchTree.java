@@ -55,6 +55,25 @@ public class AKBinarySearchTree{
 	}
 
 	public void remove(int key){
-		
+		Student temp = root;
+		if(temp!=null){
+                	do{
+                        	if(temp.getLeft().getId() == key){
+                                	temp.setLeft(temp.getLeft().getLeft());
+					//temp.setRight(temp.getLeft().getRight());
+					this.size--;
+
+                        	} else if(temp.getRight().getId()==key){
+					temp.setLeft(temp);
+				}
+				else if(key <= temp.getId()){
+                                	temp = temp.getLeft();
+
+                        	}else{
+                                	temp = temp.getRight();
+                        	}
+
+	                }while(temp != null);
+		}
 	}
 }
