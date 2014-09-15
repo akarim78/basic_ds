@@ -58,6 +58,26 @@ public class Node{
 
 	}
 
+	public Node removeDuplicates(Node head){
+		Node temp1 = head;
+		Node temp2 = head;
+		while(temp1!=null){
+			while(temp2.next!=null){
+				if(temp2.next.data == temp1.data){
+					temp2.next = temp2.next.next;
+									
+				}else{
+					temp2 = temp2.next;
+				}
+				//temp2 = temp2.next;
+
+			}
+			temp1 = temp1.next;
+			temp2 = temp1;
+		}
+		return head;
+	}
+
 	public String toString(){
 		Node n = this;
 		String str = "";
