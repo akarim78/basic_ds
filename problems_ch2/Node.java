@@ -35,6 +35,29 @@ public class Node{
 		return head;
 	}
 
+	public Node deleteKthFromLast(Node head, int k){
+		Node temp1 = head;
+		Node temp2 = head;
+
+		for(int i=0; i< k; i++){
+			if(temp2.next == null){
+				return null; // less than k elements in linked list
+			}
+			temp2 = temp2.next;
+		}
+
+		while(temp2.next!=null){
+			temp1 = temp1.next;
+			temp2 = temp2.next;
+		}
+
+		Node ret = temp1.next;
+		temp1.next = temp1.next.next;
+
+		return ret;
+
+	}
+
 	public String toString(){
 		Node n = this;
 		String str = "";
