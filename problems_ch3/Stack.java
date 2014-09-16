@@ -2,6 +2,7 @@
 public class Stack{
 
 	Node top;
+	Node min;
 
 	public Stack(){
 		top = null;
@@ -20,9 +21,21 @@ public class Stack{
 		Node t = new Node(d);
 		t.next = top;
 		top = t;
+
+		if(min!=null){
+			if(t.data < min.data){
+				min = t;
+			}
+		}else{
+			min = t;
+		}
 	}
 
 	public int peek(){
 		return top.data;
+	}
+
+	public int min(){
+		return min.data;
 	}
 }
