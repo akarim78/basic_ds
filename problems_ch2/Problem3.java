@@ -13,7 +13,7 @@ public class Problem3{
                 list.appendToTail(5);
                 list.appendToTail(6);
                 list.appendToTail(7);
-		list.appendToTail(8);
+		//list.appendToTail(8);
                 System.out.println(list.toString());
 
                 Node s = list.removeMidNode(list);

@@ -83,14 +83,16 @@ public class Node{
 		// what if n=1,2,3?
 		Node temp1 = head;
 		Node temp2 = head;
-		Node temp3 = head;
-		while(temp2!=null && temp2.next !=null){
-			temp3 = temp1;
-			temp1 = temp1.next;
+		//Node temp3 = head;
+		while(temp2.next.next!=null){
+			//temp3 = temp1;
+			if(temp2.next!=null){
+				temp1 = temp1.next;
+			}
 			temp2 = temp2.next.next;
 		}
 
-		temp3.next = temp3.next.next;
+		temp1.next = temp1.next.next;
 
 		return head;
 		
