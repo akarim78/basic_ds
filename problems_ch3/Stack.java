@@ -35,6 +35,10 @@ public class Stack{
 		return top.data;
 	}
 
+	public boolean isEmpty(){
+		return top == null;
+	}
+
 	public int min(){
 		return min.data;
 	}
