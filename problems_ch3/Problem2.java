@@ -1,3 +1,8 @@
+/*
+ * push, pop, min O(1)
+ * problem with pop exists
+ */
+
 public class Problem2{
 
 	public static void main(String args[]){
