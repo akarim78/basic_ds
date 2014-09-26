@@ -1,12 +1,13 @@
 /*
  * String permutation recursive
  */
+import java.util.ArrayList;
 
 public class StringPermutation { 
 
 	public static void main(String args[]) {
 		int[] data = {1, 2, 3, 4};
-		perm(data, 0, data.length - 1);	
+		perm(data, 0, data.length - 1);
 	}
 
 	public static void perm(int[] a, int k, int n) {
