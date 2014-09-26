@@ -10,6 +10,8 @@ public class ReverseWords{
 		String str = "hello how are you my friend";
 		String res = reverse(str);
 		System.out.println("Reversed: " + res);
+		res = reverse2(str);
+                System.out.println("Reversed: " + res);
 	}
 
 	public static String reverse(String str){
@@ -31,6 +33,30 @@ public class ReverseWords{
 
 		return result;
 		
+
+	}
+
+	public static String reverse2(String str){
+		int size = str.length();
+		char[] rev = new char[size];
+		for(int i = 0; i < size; i++){
+			rev[i] = str.charAt(size-i-1);
+		}
+
+		String revStr = new String(rev);
+		StringTokenizer tk = new StringTokenizer(revStr, " ");
+                int count = tk.countTokens();
+                while(tk.hasMoreTokens()){
+                        String temp = tk.nextToken();
+                        //System.out.println(temp);
+                        //stack.push(temp);
+			for(int i = temp.length()-1; i>= 0; i--){
+				System.out.print(temp.charAt(i));
+			}
+			System.out.print(" ");
+                }
+
+		return revStr;
 
 	} 
 }
