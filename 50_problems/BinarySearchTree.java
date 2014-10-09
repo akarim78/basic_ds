@@ -1,3 +1,6 @@
+import java.util.Queue;
+import java.util.LinkedList;
+
 public class BinarySearchTree {
 
 	TNode root;
@@ -8,6 +11,48 @@ public class BinarySearchTree {
 	public BinarySearchTree() {
 		this.root = null;
 	}
+
+	public void printTreeLevel(int level) {
+		if(level < 0) return;
+		if(root == null) return;
+		Queue<TNode> q = new LinkedList<TNode>();
+		Queue<Integer> qLevel = new LinkedList<Integer>();
+		q.add(root);
+		qLevel.add(0);
+		while(!q.isEmpty()) {
+			TNode t = q.poll(); // dequeue
+			int currentLevel = qLevel.poll();
+			if(t == null) return;
+			else if(currentLevel == level)
+				System.out.print(t.data + " ");
+			else{
+				q.add(t.left);
+				qLevel.add(currentLevel + 1);
+				q.add(t.right);
+				qLevel.add(currentLevel + 1);
+			}
+
+		}
+
+			
+	}
+
+	public void printLevel(int levelToPrint) {
+		if(levelToPrint < 0) return;
+		if(this.root == null) {
+			return;
+		} else{
+			printLevelRecursive(root, 0, levelToPrint);
+		}
+	}
+
+	private void printLevelRecursive(TNode node, int level, int levelToPrint) {
+		if(node == null) return;
+		if(level == levelToPrint) System.out.print(node.data + " ");
+		level ++;
+		printLevelRecursive (node.left, level, levelToPrint);
+		printLevelRecursive (node.right, level, levelToPrint);
+	}	
 
 	public boolean isBST() {
 		if(this.root == null) {
