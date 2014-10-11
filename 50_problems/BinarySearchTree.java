@@ -12,6 +12,24 @@ public class BinarySearchTree {
 		this.root = null;
 	}
 
+	public int getClosest(int m) {
+		return m+minDiff(this.root, m);
+	}
+
+	private int minDiff(TNode node, int m){
+		if(node == null) return Integer.MAX_VALUE;
+
+		if(node.data < m)
+			return smallDiff(node.data - m, minDiff(node.right, m));
+		else
+			return smallDiff(node.data - m, minDiff(node.left, m));
+	}
+
+	private int smallDiff(int a, int b) {
+		if(Math.abs(a) > Math.abs(b)) return b;
+		return a;
+	} 
+
 	public void printTreeLevel(int level) {
 		if(level < 0) return;
 		if(root == null) return;
