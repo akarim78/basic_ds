@@ -55,11 +55,8 @@ class Tree{
 				System.out.print(current.value + " ");
 				current = current.right;
 			}
-
 		}
-
 	}
-
 	// preorder rec
 	public void preOrder() {
 		System.out.print(value+ " ");
@@ -67,7 +64,7 @@ class Tree{
                         left.preOrder();
                 if(right != null)
                         right.preOrder();
- 
+
 	}
 
 	public void preOrderNonRec() {
