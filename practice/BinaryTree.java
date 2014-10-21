@@ -13,6 +13,25 @@ public class BinaryTree
     		this.data = data;
   	}
 
+	// using Queue last/right
+	public BinaryTree getDeepestNodeIte(BinaryTree root) {
+		if(root == null) return null;
+		Queue<BinaryTree> queue = new LinkedList<BinaryTree>();
+		BinaryTree current = root;
+
+		BinaryTree deepest = null;
+		while(!queue.isEmpty() || current != null) {
+			if(current != null) {
+				System.out.print(current.data + " ");
+				if(current.left != null) queue.add(current.left);
+				if(current.right != null) queue.add(current.right);
+			}
+			current = queue.poll();
+			if(current != null) deepest = current;
+		}
+		return deepest;
+	}
+
   	public int countLeaves() {
     		if ((this.left == null) && (this.right == null)) return 1;
     		int leftCount = 0;
