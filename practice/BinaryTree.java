@@ -69,6 +69,33 @@ public class BinaryTree
     		}
   	}
 
+	public void levelOrderSpiral(BinaryTree node) {
+		if(node == null) return;
+		int height = maxDepth();
+		boolean ltr = false;
+		for(int i = 1; i<=height; i++) {
+			printGivenLevelSpiral(node, i, ltr);
+			if(ltr) ltr = false;
+			else ltr = true; 
+		}
+	
+	}
+
+	public void printGivenLevelSpiral(BinaryTree node, int level, boolean ltr) {
+		if(node == null || level == 0) return;
+		if(level == 1) System.out.print(node.data + " ");
+		else {
+			if(ltr) {
+				if(node.left != null) printGivenLevelSpiral(node.left, level-1, ltr);
+				if(node.right != null) printGivenLevelSpiral(node.right, level-1,ltr);
+			} else {
+				if(node.right!=null) printGivenLevelSpiral(node.right, level -1, ltr);
+				if(node.left != null) printGivenLevelSpiral(node.left, level-1, ltr);
+			}
+		}
+
+	}
+
   	public void levelOrderTraversal(BinaryTree node)
   	{
     		if (node == null) return;

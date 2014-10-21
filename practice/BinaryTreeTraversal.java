@@ -34,6 +34,11 @@ public class BinaryTreeTraversal
 		tree.levelOrderTraversal(tree);
 		System.out.println();
 
+		// level order spiral
+		System.out.println("Level order spiral");
+		tree.levelOrderSpiral(tree);
+		System.out.println();
+
 		// mirror of tree
 		tree.mirror();
 
