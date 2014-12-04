@@ -2,7 +2,7 @@ public class DeleteAlternate {
 
 	public static void main(String args[]) {
 		LinkedList list = new LinkedList(0);
-		for(int i = 1; i < 10; i++) {
+		for(int i = 1; i < 11; i++) {
 			list.addToTail(i);
 		}
 		list.print();
